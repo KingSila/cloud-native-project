@@ -1,0 +1,102 @@
+# ----------------------
+# .NET build artifacts
+# ----------------------
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+artifacts/
+project.lock.json
+project.fragment.lock.json
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Rider
+.idea/
+
+# NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+*.nuget.props
+*.nuget.targets
+packages/
+
+# Entity Framework
+Migrations/
+
+# Coverage & test results
+*.coverage
+*.coveragexml
+TestResult.xml
+TestResults/
+*.trx
+
+# Temp & cache
+*.log
+*.tlog
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# System files
+*.DS_Store
+Thumbs.db
+desktop.ini
+
+# Publish output
+publish/
+out/
+
+# ----------------------
+# Terraform
+# ----------------------
+# Local .terraform directories
+**/.terraform/*
+
+# State files
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Ignore override files (sensitive or local configs)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Plan files
+# Plan files
+*.tfplan
+*.plan
+
+# ----------------------
+# Ansible
+# ----------------------
+# SSH keys or sensitive files
+*.retry
+*.vault_pass
+*.secret
+*.key
+*.pem
+
+# Local inventory cache
+*.inventory
+.cache/
+fact_cache/
+*.facts
+
+# Ansible logs
+*.log
+ansible.log
