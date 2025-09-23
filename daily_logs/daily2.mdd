@@ -1,0 +1,64 @@
+# 84 days Daily Learning Log 
+
+Each entry should capture key learnings, challenges, and reflections for the day.  
+This template can be copied for each day across the 12 weeks.
+
+---
+### Day 2 - 2025-09-23
+
+**Topics Covered**
+
+- ASP.NET Core Web API troubleshooting
+- Swagger UI configuration and setup
+- HTTPS redirection middleware configuration
+- NuGet package management (.NET 9)
+- API documentation with OpenAPI and Swagger
+
+**Key Learnings**
+
+- Fixed Mermaid diagram preview issue by properly wrapping diagram code in `mermaid` code blocks
+- Resolved HTTPS redirection warning by implementing conditional HTTPS redirection logic
+- Successfully configured Swagger UI alongside .NET 9's new OpenAPI approach
+- Learned about the differences between `AddOpenApi()` (new .NET 9) and traditional Swagger setup
+- Understanding of process locking issues during builds and how to resolve them
+
+**Hands-On Practice**
+
+- Fixed architecture diagram markdown file with proper Mermaid syntax
+- Added Swashbuckle.AspNetCore package to enable Swagger UI
+- Configured Program.cs with both OpenAPI and Swagger services
+- Modified appsettings.Development.json to handle HTTPS configuration
+- Implemented conditional HTTPS redirection based on environment and configuration
+- Troubleshot build issues with locked DLL files and process management
+
+**Challenges & Solutions**
+
+- **Challenge**: Mermaid diagram not rendering in VS Code preview
+  - **Solution**: Wrapped diagram code in proper ````mermaid` code blocks and added document structure
+
+- **Challenge**: HTTPS redirection middleware warning about missing HTTPS port
+  - **Solution**: Implemented conditional logic to only use HTTPS redirection when appropriate and configured HTTPS port in appsettings
+
+- **Challenge**: 404 error when accessing `/swagger` endpoint
+  - **Solution**: Added Swashbuckle.AspNetCore package and properly configured Swagger UI middleware alongside the new .NET 9 OpenAPI
+
+- **Challenge**: Build failures due to locked DLL files
+  - **Solution**: Identified and terminated running processes that were locking files using taskkill command
+
+**Technical Details**
+
+- **Packages Added**: `Swashbuckle.AspNetCore` version 9.0.4
+- **Configuration Changes**: 
+  - Added `UseHttpsRedirection: false` in Development settings
+  - Configured `HttpsPort: 7035` for proper HTTPS redirection
+- **Endpoints Configured**:
+  - Swagger UI: `http://localhost:5249/swagger`
+  - OpenAPI JSON: `http://localhost:5249/swagger/v1/swagger.json`
+  - Alternative OpenAPI: `http://localhost:5249/openapi/v1.json`
+
+**Reflection**
+
+- Gained deeper understanding of .NET 9's new OpenAPI approach and how it coexists with traditional Swagger
+- Improved troubleshooting skills for ASP.NET Core middleware configuration issues
+- Better understanding of development vs production configuration patterns
+- Tomorrow: Continue with API development and explore more advanced Swagger configurations or start implementing business logic
