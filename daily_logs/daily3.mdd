@@ -1,0 +1,60 @@
+---
+### Day 3 - 2025-09-24
+
+**Topics Covered**
+
+- Clean API architecture and legacy code removal
+- Complete CRUD API implementation with BookController
+- Multiple API testing methodologies and tools
+- ASP.NET Core service registration and middleware configuration
+- RESTful API design principles and best practices
+
+**Key Learnings**
+
+- Removed legacy WeatherForecast API code to focus on business domain (Book catalog)
+- Essential service registration pattern: `AddControllers()` + `MapControllers()` for API routing
+- Multiple API testing approaches provide flexibility in development workflow
+- Environment variables in HTTP files enable flexible URL management across environments
+- Proper async/await patterns are crucial for database operations in web APIs
+
+**Hands-On Practice**
+
+- Cleaned up Program.cs by removing WeatherForecast remnants and streamlining OpenAPI configuration
+- Implemented complete BookController with full CRUD operations (GET, POST, PUT, DELETE)
+- Created comprehensive API testing setup using VS Code .http files with variables
+- Configured Bruno API client with base URL settings for professional API testing
+- Set up multiple testing strategies: HTTP files, Swagger UI, Bruno, and command-line tools
+
+**Challenges & Solutions**
+
+- **Challenge**: "API not found" errors when trying to test endpoints
+  - **Solution**: Fixed missing `AddControllers()` service registration and `MapControllers()` middleware mapping in Program.cs
+
+- **Challenge**: HTTP file variable not being recognized in API requests
+  - **Solution**: Verified correct variable syntax `@Api.Catalog_HostAddress = http://localhost:5249` and ensured server was running
+
+- **Challenge**: Setting up professional API testing workflow with Bruno
+  - **Solution**: Configured base URL in Bruno collection settings and created organized test requests for all CRUD operations
+
+**Technical Details**
+
+- **Controller Implementation**: 
+  - `GET /api/Book` - List all books
+  - `GET /api/Book/{id}` - Get specific book by ID  
+  - `POST /api/Book` - Create new book
+  - `PUT /api/Book/{id}` - Update existing book
+  - `DELETE /api/Book/{id}` - Delete book
+- **HTTP Status Codes**: Proper implementation of 200, 201, 204, 400, 404 responses
+- **Testing Tools Configured**:
+  - VS Code HTTP files with `@Api.Catalog_HostAddress` variable
+  - Swagger UI at `/swagger` endpoint
+  - Bruno API client with base URL configuration
+  - Command-line options (cURL, PowerShell)
+
+**Reflection**
+
+- Gained solid understanding of ASP.NET Core Web API fundamentals and service registration lifecycle
+- Developed comprehensive API testing strategy using multiple complementary tools
+- Improved troubleshooting skills for common API connectivity and routing issues
+- Better appreciation for clean architecture principles - removing legacy code improved focus and maintainability
+- Tomorrow: Focus on database initialization, data seeding, and implementing proper error handling/validation
