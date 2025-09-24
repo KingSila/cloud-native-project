@@ -1,6 +1,50 @@
 @Api.Catalog_HostAddress = http://localhost:5249
 
-GET {{Api.Catalog_HostAddress}}/weatherforecast/
+// Get all books
+GET {{Api.Catalog_HostAddress}}/api/Book
+Accept: application/json
+
+###
+
+// Get a specific book by ID
+GET {{Api.Catalog_HostAddress}}/api/Book/1
+Accept: application/json
+
+###
+
+// Create a new book
+POST {{Api.Catalog_HostAddress}}/api/Book
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Sample Book",
+  "author": "Sample Author",
+  "isbn": "978-0123456789",
+  "publishedDate": "2023-01-01",
+  "price": 29.99
+}
+
+###
+
+// Update a book
+PUT {{Api.Catalog_HostAddress}}/api/Book/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 1,
+  "title": "Updated Book Title",
+  "author": "Updated Author",
+  "isbn": "978-0123456789",
+  "publishedDate": "2023-01-01",
+  "price": 34.99
+}
+
+###
+
+// Delete a book
+DELETE {{Api.Catalog_HostAddress}}/api/Book/1
 Accept: application/json
 
 ###
