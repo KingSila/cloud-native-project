@@ -1,0 +1,42 @@
+# Daily Learning Log – Day 4
+**Date:** 2025-09-24
+
+## Topics Covered
+- Reviews microservice design
+- EF Core DbContext & migrations
+- SQLite for local development
+- RESTful CRUD for Reviews
+- Swagger testing & verification
+
+## Key Learnings
+- How to model a `Review` entity (stars 1–5, title/body, BookId, UserId, status).
+- Wiring a new `DbContext` and using EF Core migrations to generate schema.
+- Why SQLite is ideal for fast local iteration before moving to Azure SQL.
+- Building a focused controller with pagination and validation checks.
+- Separation of concerns: keeping Reviews separate from Catalog to simplify scaling and moderation flows.
+
+## Hands-On Practice
+- Scaffolded **Api.Reviews** Web API project.
+- Added EF Core packages (runtime + design) and created `ReviewsDbContext`.
+- Implemented CRUD endpoints plus **list by `bookId`** with paging.
+- Ran `dotnet ef migrations add InitialCreate` and `dotnet ef database update` to create `Data/reviews.db`.
+- Verified endpoints via **Swagger** and sample JSON payloads.
+
+## Challenges & Solutions
+- **Challenge:** Remembering EF Core package split (runtime vs design).  
+  **Solution:** Added `Microsoft.EntityFrameworkCore.Design` with `<PrivateAssets>all</PrivateAssets>` for tooling only.
+- **Challenge:** Deciding what to return for list endpoints.  
+  **Solution:** Returned ordered, paged results and planned to add metadata headers next.
+- **Challenge:** Auth not wired yet for POST/PUT/DELETE.  
+  **Solution:** Proceeded with open endpoints for local testing; queued JWT + `[Authorize]` for tomorrow.
+
+## Reflection
+- The Reviews service is now independently runnable and testable. This keeps the domain clean and makes it easy to plug in auth, validation, and event-driven indexing later.
+- Confidence boost: I can stand up a new service from scratch, wire persistence, and expose a clean API in a day.
+
+## Next Steps (Tomorrow – Day 5)
+- Add **model validation** (FluentValidation or data annotations).
+- Wire **JWT authentication** (`AddAuthentication().AddJwtBearer(...)`) and protect mutating endpoints with `[Authorize]`.
+- Introduce **DTOs** to prevent over-posting and shape responses.
+- Add **paging metadata** (e.g., `X-Total-Count`, `Link` headers) for better client UX.
+
