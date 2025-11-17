@@ -1,0 +1,7 @@
+version: 1
+schemas:
+  - id: root
+    title: Cloud Native Root Schema
+    desc: Root schema for cloud native project vault
+    parent: root
+    pattern: '*'

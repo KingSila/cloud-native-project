@@ -1,0 +1,7 @@
+version: 1
+schemas:
+  - id: root
+    title: Root Schema
+    desc: Root schema for vault
+    parent: root
+    pattern: '*'
